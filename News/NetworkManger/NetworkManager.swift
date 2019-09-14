@@ -12,9 +12,11 @@ struct NetworkManager {
     
     static let shared = NetworkManager()
     
-    func getNews(completion: @escaping ([ArticlesModel]?) -> ()) {
+    func getNews(fromPage: String, completion: @escaping ([ArticlesModel]?) -> ()) {
         
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=feb88f4f27b745f1a0838027633f1cf3") else {return}
+        let urlWithPage = "https://newsapi.org/v2/top-headlines?country=us&apiKey=feb88f4f27b745f1a0838027633f1cf3" + "&page=" + fromPage
+        
+        guard let url = URL(string: urlWithPage) else {return}
        
         URLSession.shared.dataTask(with: url) { data, response, error  in
         
