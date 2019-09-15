@@ -10,8 +10,15 @@ import Foundation
 
 struct NewsListViewModel {
     
-    var articles: [ArticlesModel]
-
+    var articlesArray = [ArticlesModel]()
+    
+    //MARK: - Sorted array by early date
+    var articles: [ArticlesModel]{
+        
+        return articlesArray.sorted { (a, b) -> Bool in
+            return a.publishedAt?.compare(b.publishedAt!) == ComparisonResult.orderedAscending
+        }
+    }
 }
 
 extension NewsListViewModel {
@@ -25,8 +32,11 @@ extension NewsListViewModel {
     }
     
     func articleAtIndex(_ index: Int) -> ArticleViewModel {
+        
         let article = articles[index]
         return ArticleViewModel(article)
     }
+    
+    
     
 }

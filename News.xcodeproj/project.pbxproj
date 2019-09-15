@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A58A3D3232D45AE00665BE1 /* ScopeButtonsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A58A3D2232D45AE00665BE1 /* ScopeButtonsFilter.swift */; };
 		2A75BCBD23289900004E84B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A75BCBC23289900004E84B9 /* AppDelegate.swift */; };
 		2A75BCBF23289900004E84B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A75BCBE23289900004E84B9 /* ViewController.swift */; };
 		2A75BCC223289900004E84B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A75BCC023289900004E84B9 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A58A3D2232D45AE00665BE1 /* ScopeButtonsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScopeButtonsFilter.swift; path = NewsViewModel/ScopeButtonsFilter.swift; sourceTree = "<group>"; };
 		2A75BCB923289900004E84B9 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A75BCBC23289900004E84B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A75BCBE23289900004E84B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,9 +76,10 @@
 				2A75BCE0232C0759004E84B9 /* NewsViewModel */,
 				2A75BCD923295410004E84B9 /* NetworkManger */,
 				2A75BCD02329513B004E84B9 /* NewsModel */,
+				2A58A3D2232D45AE00665BE1 /* ScopeButtonsFilter.swift */,
 				2A75BCC523289901004E84B9 /* LaunchScreen.storyboard */,
-				2A75BCC323289901004E84B9 /* Assets.xcassets */,
 				2A75BCBC23289900004E84B9 /* AppDelegate.swift */,
+				2A75BCC323289901004E84B9 /* Assets.xcassets */,
 				2A75BCC823289901004E84B9 /* Info.plist */,
 			);
 			path = News;
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A58A3D3232D45AE00665BE1 /* ScopeButtonsFilter.swift in Sources */,
 				2A75BCD423295228004E84B9 /* NewsModel.swift in Sources */,
 				2A75BCBF23289900004E84B9 /* ViewController.swift in Sources */,
 				2A75BCBD23289900004E84B9 /* AppDelegate.swift in Sources */,

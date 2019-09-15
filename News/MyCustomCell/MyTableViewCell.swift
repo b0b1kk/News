@@ -19,32 +19,46 @@ class MyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var sourceLabel: UILabel!
     
-    
     @IBOutlet weak var imageFromNews: UIImageView!
+    
+    private var imageCache = NSCache<NSString, UIImage>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
-    func configure(for vm: ArticleViewModel) {
+    //MARK: - configuration for cell
+    func configure(for vm: ArticleViewModel, indexPath: IndexPath) {
         self.titleLabel.text = vm.title
         self.descriptionLabel.text = vm.description
         self.authorLabel.text = vm.author
         self.sourceLabel.text = vm.source?.name
         
-        if let urlImage = URL(string: vm.urlToImage ?? "") {
-            let urlContents = try? Data(contentsOf: urlImage)
-            if let imageData = urlContents {
-                self.imageFromNews.image = UIImage(data: imageData)
+        //MARK: - fetch image for news with safe and check image in cache
+        
+        if let cachedImage = imageCache.object(forKey: vm.urlToImage! as NSString) {
+            self.imageFromNews.image = cachedImage
+            
+        } else {
+            if let url = URL(string: vm.urlToImage ?? "") {
+                let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    guard let data = data, let image = UIImage(data: data) else {return}
+                    self.imageCache.setObject(image, forKey: vm.urlToImage! as NSString)
+                    DispatchQueue.main.async {
+                        if self.tag == indexPath.row {
+                            self.imageFromNews.image = image
+                        }
+                    }
+                }
+                task.resume()
             }
         }
     }
-
 }

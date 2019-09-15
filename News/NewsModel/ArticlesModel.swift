@@ -18,4 +18,8 @@ struct ArticlesModel: Codable {
     var urlToImage: String?
     var publishedAt: String?
     var content: String?
+    
+    
+    
 }
+

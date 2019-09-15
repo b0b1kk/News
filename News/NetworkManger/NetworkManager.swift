@@ -12,9 +12,10 @@ struct NetworkManager {
     
     static let shared = NetworkManager()
     
-    func getNews(fromPage: String, completion: @escaping ([ArticlesModel]?) -> ()) {
+    //MARK: - fetching news 
+    func getNews(fromPage: String, url: String, completion: @escaping ([ArticlesModel]?) -> ()) {
         
-        let urlWithPage = "https://newsapi.org/v2/top-headlines?country=us&apiKey=feb88f4f27b745f1a0838027633f1cf3" + "&page=" + fromPage
+        let urlWithPage = url + "&page=" + fromPage
         
         guard let url = URL(string: urlWithPage) else {return}
        
